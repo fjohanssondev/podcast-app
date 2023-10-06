@@ -1,7 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import SessionProvider from '@components/SessionProvider'
+import SessionProvider from '@components/Providers/SessionProvider'
+import QueryProvider from '@components/Providers/QueryProvider'
 import { getCurrentSession } from '@lib/getCurrentSession'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,7 +24,9 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider session={session}>
-          {children}
+          <QueryProvider>
+            {children}
+          </QueryProvider>
         </SessionProvider>
       </body>
     </html>
