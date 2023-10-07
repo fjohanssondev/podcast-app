@@ -22,6 +22,7 @@
     "dotenv-cli": "^7.3.0",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
+    "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^1.14.0"
@@ -43,6 +44,7 @@
     "eslint-config-next": "13.5.4",
     "eslint-plugin-storybook": "^0.6.14",
     "postcss": "^8",
+    "prettier": "^3.0.3",
     "prisma": "^5.4.1",
     "storybook": "7.4.6",
     "tailwindcss": "^3",
