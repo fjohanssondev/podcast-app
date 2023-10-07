@@ -20,12 +20,12 @@ const ThemeSwitcher = () => {
   return (
     <>
       {theme === 'dark' ? (
-        <button aria-label='Switch to light theme' className='bg-slate-700 p-2 rounded-sm' onClick={() => setTheme('light')}>
+        <button aria-label='Switch to light theme' className='bg-slate-800 p-2 rounded-sm' onClick={() => setTheme('light')}>
           <SunIcon />
         </button>
       ) : (
-        <button aria-label='Switch to dark theme' className='bg-slate-700 p-2 rounded-sm' onClick={() => setTheme('dark')}>
-          <MoonIcon />
+        <button aria-label='Switch to dark theme' className='bg-slate-100 p-2 rounded-sm' onClick={() => setTheme('dark')}>
+          <MoonIcon color='black' />
         </button>
       )}
     </>
