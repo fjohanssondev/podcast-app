@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
+import { SunIcon } from '@/icons/SunIcon'
+import { MoonIcon } from '@/icons/MoonIcon'
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -17,11 +18,17 @@ const ThemeSwitcher = () => {
   }
 
   return (
-    <select value={theme} onChange={e => setTheme(e.target.value)}>
-      <option value="system">System</option>
-      <option value="dark">Dark</option>
-      <option value="light">Light</option>
-    </select>
+    <>
+      {theme === 'dark' ? (
+        <button aria-label='Switch to light theme' className='bg-slate-700 p-2 rounded-sm' onClick={() => setTheme('light')}>
+          <SunIcon />
+        </button>
+      ) : (
+        <button aria-label='Switch to dark theme' className='bg-slate-700 p-2 rounded-sm' onClick={() => setTheme('dark')}>
+          <MoonIcon />
+        </button>
+      )}
+    </>
   )
 }
 
