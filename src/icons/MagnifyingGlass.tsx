@@ -8,4 +8,4 @@ const MagnifyingGlass: React.FC<IconProps> = ({ color = '#fff' }) => {
   )
 }
 
-export default MagnifyingGlass
+export { MagnifyingGlass }

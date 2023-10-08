@@ -9,4 +9,4 @@ const CloseIcon: React.FC<IconProps> = ({ color = '#fff' }) => {
   )
 }
 
-export default CloseIcon
+export { CloseIcon }
