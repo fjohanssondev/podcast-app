@@ -6,7 +6,7 @@ export default async function Dashboard() {
 
   return (
     <section>
-      <h1>{JSON.stringify(session?.user) || "No current user"}</h1>
+      <h1 className='text-4xl font-bold'>Discover</h1>
     </section>
   )
 }
