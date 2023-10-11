@@ -29,6 +29,12 @@ const sizes: Record<AvatarSize, number> = {
   lg: 200
 }
 
+const tailwindSizes: Record<AvatarSize, string> = {
+  sm: 'w-10 h-10',
+  md: 'w-[100px] h-[100px]',
+  lg: 'w-[200px] h-[200px]'
+}
+
 const Avatar = (props: AvatarProps) => {
 
   const size = getSizesValue(props.size)
@@ -38,7 +44,7 @@ const Avatar = (props: AvatarProps) => {
     {props.image ? (
       <Image className={`${props.rounded ? 'rounded-full' : 'rounded-md'}`} src={props.image} alt={`Profile picture of ${props.name}`} width={size} height={size} />
     ) : (
-      <span className='flex items-center justify-center bg-gray-100 dark:bg-gray-700 p-3 w-10 h-10 rounded-full text-sm font-medium'>{getUserInitials(props.name)}</span>
+      <span className={`flex items-center justify-center bg-gray-100 dark:bg-gray-700 p-3 ${tailwindSizes[props.size]} ${props.rounded ? 'rounded-full' : 'rounded-md'} text-sm font-medium`}>{getUserInitials(props.name as string)}</span>
     )}
     </>
   )
