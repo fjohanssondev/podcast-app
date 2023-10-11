@@ -3,10 +3,9 @@
 import { useState } from "react"
 import { useSession } from "next-auth/react"
 import Link from "next/link"
-import Image from "next/image"
-
 import { ChevronIcon } from "@/icons/ChevronIcon"
 import useOutsideClick from "@/hooks/useClickOutside"
+import Avatar from "@components/Avatar"
 
 const ProfileDropdown = () => {
 
@@ -21,7 +20,7 @@ const ProfileDropdown = () => {
   return (
    <>
     <button ref={ref} onClick={() => setIsOpen(prev => !prev)} className='flex items-center gap-2'>
-      <Image className='rounded-full' src={session?.user.image as string || session?.user.name?.charAt(0) as string} alt={session?.user.name as string} width={40} height={40} />
+      <Avatar size="sm" name={session?.user.name ?? ''} image={session?.user.image ?? ''} />
       <span className='text-sm font-medium'>{session?.user.name}</span>
       <ChevronIcon direction='down' color='black' />
     </button>
