@@ -47,6 +47,9 @@ dependencies:
   uploadthing:
     specifier: ^5.7.1
     version: 5.7.1(zod@3.22.4)
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
 
 devDependencies:
   '@storybook/addon-essentials':
