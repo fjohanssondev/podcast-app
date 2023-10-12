@@ -44,7 +44,7 @@ const Avatar = (props: AvatarProps) => {
     {props.image ? (
       <Image className={`${props.rounded ? 'rounded-full' : 'rounded-md'}`} src={props.image} alt={`Profile picture of ${props.name}`} width={size} height={size} />
     ) : (
-      <span className={`flex items-center justify-center bg-gray-100 dark:bg-gray-700 p-3 ${tailwindSizes[props.size]} ${props.rounded ? 'rounded-full' : 'rounded-md'} text-sm font-medium`}>{getUserInitials(props.name as string)}</span>
+      <span className={`flex items-center text-lg justify-center bg-gray-100 dark:bg-gray-700 p-3 ${tailwindSizes[props.size]} ${props.rounded ? 'rounded-full' : 'rounded-md'} text-sm font-medium`}>{getUserInitials(props.name as string)}</span>
     )}
     </>
   )
