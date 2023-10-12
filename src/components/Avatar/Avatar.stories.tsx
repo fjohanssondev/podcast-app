@@ -9,7 +9,7 @@ const meta: Meta<typeof Avatar> = {
 export default meta;
 type Story = StoryObj<typeof Avatar>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     image: 'https://avatars.githubusercontent.com/u/4060187?v=4',
     name: 'John Doe',
