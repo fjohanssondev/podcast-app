@@ -84,7 +84,7 @@ const DialogContent = (props: DialogContentProps) => {
           </button>
           <div>
             <h3 id={titleId} className='text-lg font-semibold'>{props.title}</h3>
-            <p id={descriptionId} className='text-sm leading-loose'>{props.description}</p>
+            <p id={descriptionId} className='text-sm leading-relaxed'>{props.description}</p>
           </div>
           <div className='mt-2'>
             {props.children}
