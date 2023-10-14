@@ -14,11 +14,20 @@ export async function GET(request: Request){
     });
   }
 
-  const data = await prisma.user.findUnique({
-    where: {
-      id: id as string
-    }
-  })
-
-  return Response.json(data)
+  try {
+    const data = await prisma.user.findFirst({
+      where: {
+        id: id as string
+      },
+      include: {
+        following: true,
+        followedBy: true,
+      }
+    });
+  
+    return new Response(JSON.stringify(data));
+  } catch (error) {
+    console.error(error);
+    return new Response("Internal Server Error", { status: 500 });
+  }
 }
