@@ -13,7 +13,9 @@ const DialogPortal = ({ children }: { children: React.ReactNode }) => {
     setContainer(newContainer);
 
     return () => {
-      document.body.removeChild(newContainer);
+      if (document.body.contains(newContainer)) {
+        document.body.removeChild(newContainer);
+      }
     };
   }, [])
 
