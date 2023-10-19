@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "dotenv-cli": "^7.3.0",
+    "houseform": "^1.11.1",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
     "next-themes": "^0.2.1",
