@@ -1,4 +1,4 @@
-import SadIcon from '@/icons/SadIcon'
+import { SadIcon } from '@/icons/SadIcon'
 import React from 'react'
 
 interface EmptyListProps {

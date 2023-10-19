@@ -20,7 +20,7 @@ const ProfileDropdown = () => {
   return (
    <>
     <button aria-haspopup="true" ref={ref} onClick={() => setIsOpen(prev => !prev)} className='flex items-center gap-2'>
-      <Avatar size="sm" name={session?.user.name ?? ''} image={session?.user.image ?? ''} />
+      <Avatar rounded={true} size="sm" name={session?.user.name ?? ''} image={session?.user.image ?? ''} />
       <span className='text-sm font-medium'>{session?.user.name}</span>
       <ChevronIcon direction='down' color='black' />
     </button>

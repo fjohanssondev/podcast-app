@@ -1,23 +1,28 @@
 'use client'
 
 import React from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import Avatar from '@components/Avatar'
 import FollowStats from '@components/FollowStats';
 import { useSession } from 'next-auth/react';
+import { LocationIcon } from '@/icons/LocationIcon';
 
 interface ProfileDetailsProps {
-  id: string,
+  id: string
 }
 
 export interface User {
-  id: string;
-  name: string;
-  email: string;
-  emailVerified?: Date;
-  image: string;
+  id: string
+  name: string
+  email: string
+  emailVerified?: Date
+  image: string
   following: User[]
   followedBy: User[]
+  profile: {
+    bio: string
+    location: string
+  }
 }
 
 const ProfileDetails = (props: ProfileDetailsProps) => {
@@ -33,6 +38,18 @@ const ProfileDetails = (props: ProfileDetailsProps) => {
     }
   })
 
+  const mutation = useMutation(async (user: User) => {
+    mutationFn: (newFollower: User) => {
+      return fetch('/api/users/follow', {
+        method: 'POST',
+        body: JSON.stringify(newFollower),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    }
+  })
+
   const isAllowedToFollow = () => {
     if (session?.user.id !== props.id){
       return true
@@ -40,13 +57,19 @@ const ProfileDetails = (props: ProfileDetailsProps) => {
   }
 
   const canFollow = isAllowedToFollow()
-
+  
   return (
     <>
       <Avatar image={data?.image ?? ''} name={data?.name ?? ''} size='lg' />
       <div className='ml-16'>
         <h2 className='text-5xl font-bold text-black dark:text-white'>{data?.name}</h2>
-        <p className='text-sm font-medium max-w-xl mt-6 leading-loose'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p className='text-sm mb-4 font-medium max-w-xl mt-6 leading-loose'>{data?.profile?.bio ?? "This user hasn't written a bio about themself yet.."}</p>
+        {data?.profile?.location && (
+          <span className='flex items-center gap-1 text-sm'>
+            <LocationIcon color='black' />
+            {data?.profile.location}
+          </span>
+        )}
         <FollowStats following={data?.following ?? []} followers={data?.followedBy ?? []} />
         {canFollow && <button className='bg-orange-300 px-4 py-2 rounded-sm mt-12'>Follow the user</button>}
       </div>
