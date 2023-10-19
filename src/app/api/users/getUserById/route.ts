@@ -22,9 +22,15 @@ export async function GET(request: Request){
       include: {
         following: true,
         followedBy: true,
+        profile: {
+          select: {
+            bio: true,
+            location: true,
+          }
+        }
       }
     });
-  
+   
     return new Response(JSON.stringify(data));
   } catch (error) {
     console.error(error);
