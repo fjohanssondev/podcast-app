@@ -14,6 +14,7 @@ import ThemeProvider from '@/components/Providers/ThemeProvider'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import GoBack from '@/components/GoBack'
+import { AudioPlayer } from '@/components/AudioPlayer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,12 +33,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={clsx(inter.className, 'min-h-screen text-black bg-white dark:text-white dark:bg-gradient-to-t dark:from-black dark:to-darkBlue')}>
+      <body className={clsx(inter.className, 'flex flex-col min-h-screen text-black bg-white dark:text-white dark:bg-gradient-to-t dark:from-black dark:to-darkBlue')}>
         <SessionProvider session={session}>
           <QueryProvider>
             <ThemeProvider>
               <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-              <div className='flex'>
+              <div className='flex flex-1'>
                 <Sidebar />
                 <div className='flex flex-col flex-1'>
                   <Header />
@@ -49,6 +50,7 @@ export default async function RootLayout({
                   </main>
                 </div>
               </div>
+              <AudioPlayer />
             </ThemeProvider>
           </QueryProvider>
         </SessionProvider>
