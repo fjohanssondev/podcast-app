@@ -59,6 +59,96 @@ model User {
   sessions      Session[]
 
   // Non-Next Auth
-  followedBy User[] @relation("UserFollows")
-  following  User[] @relation("UserFollows")
+  followedBy       User[]    @relation("UserFollows")
+  following        User[]    @relation("UserFollows")
+  profile          Profile?
+  podcasts         Podcast[]
+  episodes         Episode[]
+  guestAppearances Guest[]
+
+  createdAt DateTime @default(now())
+}
+
+model Profile {
+  id       String  @id @default(cuid())
+  bio      String?
+  location String?
+  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String  @unique
+
+  @@index([userId])
+}
+
+enum PodcastCategory {
+  ARTS
+  BUSINESS
+  COMEDY
+  EDUCATION
+  GAMES
+  GOVERNMENT
+  HEALTH
+  KIDS_AND_FAMILY
+  MUSIC
+  NEWS
+  RELIGION_AND_SPIRITUALITY
+  SCIENCE
+  SOCIETY_AND_CULTURE
+  SPORTS
+  TECHNOLOGY
+  TV_AND_FILM
+}
+
+enum Languages {
+  SWEDISH
+  ENGLISH
+  GERMAN
+  FRENCH
+  SPANISH
+}
+
+model Podcast {
+  id          String          @id @default(cuid())
+  title       String
+  description String?
+  image       String?
+  publishedAt DateTime?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  category    PodcastCategory
+  language    Languages
+  link        String?
+  episodes    Episode[]
+  userId      String
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Episode {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  audioURL    String
+  podcastId   String
+  podcast     Podcast  @relation(fields: [podcastId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  guests      Guest[]  @relation("EpisodeGuests")
+
+  @@index([podcastId])
+  @@index([userId])
+}
+
+model Guest {
+  id        String    @id @default(cuid())
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?   @unique
+  episodes  Episode[] @relation("EpisodeGuests")
+
+  @@index([userId])
 }
