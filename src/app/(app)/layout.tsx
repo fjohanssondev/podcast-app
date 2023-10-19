@@ -13,6 +13,7 @@ import QueryProvider from '@components/Providers/QueryProvider'
 import ThemeProvider from '@/components/Providers/ThemeProvider'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
+import GoBack from '@/components/GoBack'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,7 +42,8 @@ export default async function RootLayout({
                 <div className='flex flex-col flex-1'>
                   <Header />
                   <main>
-                    <div className='container px-12 py-16'>
+                    <div className='container px-12 py-10'>
+                      <GoBack />
                       {children}
                     </div>
                   </main>
