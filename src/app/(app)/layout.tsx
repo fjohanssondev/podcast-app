@@ -4,9 +4,8 @@ import { Inter } from 'next/font/google'
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
 import { extractRouterConfig } from 'uploadthing/server'
 import { ourFileRouter } from '../api/uploadthing/core'
+import { auth } from '@base/auth'
 import clsx from 'clsx'
-
-import { getCurrentSession } from '@lib/getCurrentSession'
 
 import SessionProvider from '@components/Providers/SessionProvider'
 import QueryProvider from '@components/Providers/QueryProvider'
@@ -29,7 +28,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const session = await getCurrentSession()
+  const session = await auth()
 
   return (
     <html lang="en" suppressHydrationWarning>
