@@ -1,4 +1,4 @@
-import { getCurrentSession } from "@lib/getCurrentSession";
+import { auth } from "@base/auth";
 import prisma from "@lib/prisma";
 
 export async function GET(request: Request){
@@ -6,7 +6,7 @@ export async function GET(request: Request){
   const { searchParams } = new URL(request.url)
   const id = searchParams.get('id')
 
-  const session = await getCurrentSession()
+  const session = await auth()
 
   if (!session) {
     return new Response("Unauthorized access detected", {

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import radixThemePlugin from "radix-ui-themes-with-tailwind";
 
 const config: Config = {
   darkMode: "class",
@@ -16,6 +17,12 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    radixThemePlugin({
+      useTailwindColorNames: true,
+      useTailwindRadiusNames: true,
+      mapMissingTailwindColors: true,
+    }),
+  ],
 }
 export default config

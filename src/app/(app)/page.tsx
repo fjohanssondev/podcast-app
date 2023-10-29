@@ -1,8 +1,5 @@
-import { getCurrentSession } from '@lib/getCurrentSession'
 
 export default async function Dashboard() {
-
-  const session = await getCurrentSession()
 
   return (
     <section>

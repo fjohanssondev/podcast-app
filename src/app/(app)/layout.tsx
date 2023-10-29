@@ -1,4 +1,6 @@
 import '../globals.css'
+import '@radix-ui/themes/styles.css';
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
@@ -32,7 +34,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={clsx(inter.className, 'flex flex-col min-h-screen text-black bg-white dark:text-white dark:bg-gradient-to-t dark:from-black dark:to-darkBlue')}>
+      <body className={clsx(inter.className, 'flex flex-col min-h-screen text-black')}>
         <SessionProvider session={session}>
           <QueryProvider>
             <ThemeProvider>
