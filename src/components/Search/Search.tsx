@@ -1,13 +1,16 @@
-import { MagnifyingGlass } from "@/icons/MagnifyingGlass"
+"use client"
+
+import { TextField } from "@radix-ui/themes"
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 
 const Search = () => {
   return (
-    <div className="inline-flex items-center w-96">
-      <div>
-        <MagnifyingGlass />
-      </div>
-      <input className="flex-1 font-sans text-sm p-4 rounded bg-transparent border border-black dark:border-gray-800" type="search" placeholder="Search for podcasts, episodes, creators..." />
-    </div>
+    <TextField.Root className="mr-8">
+      <TextField.Slot>
+        <MagnifyingGlassIcon height="16" width="16" />
+      </TextField.Slot>
+      <TextField.Input placeholder="Search users, podcasts and episodes..." />
+    </TextField.Root>
   )
 }
 
