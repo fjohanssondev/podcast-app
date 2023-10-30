@@ -2,18 +2,22 @@
 
 import React, { useState } from 'react'
 import { PlayIcon, PauseIcon, TrackPreviousIcon, TrackNextIcon } from '@radix-ui/react-icons'
+import { useAudioStore } from '@/store/audioStore';
 
-const Controls = ({ audioRef }: any) => {
+const Controls = () => {
 
+  const { audioRef } = useAudioStore();
   const [isPlaying, setIsPlaying] = useState(false)
 
   const handlePlayPause = () => {
-    if (audioRef.current.paused) {
-      audioRef.current.play()
-      setIsPlaying(true)
-    } else {
-      audioRef.current.pause()
-      setIsPlaying(false)
+    if (audioRef){
+      if (audioRef.paused) {
+        audioRef.play()
+        setIsPlaying(true)
+      } else {
+        audioRef.pause()
+        setIsPlaying(false)
+      }
     }
   }
 
