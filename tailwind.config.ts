@@ -13,7 +13,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        darkBlue: 'hsl(230, 30%, 15%)'
+        dark: {
+          primary: "#0A0A0A",
+          secondary: "#161616",
+        }
       }
     },
   },
