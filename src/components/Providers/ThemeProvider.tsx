@@ -6,7 +6,7 @@ import { Theme } from '@radix-ui/themes';
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProviderWrapper attribute="class">
-      <Theme accentColor="ruby" scaling='95%'>
+      <Theme accentColor="orange" scaling='95%'>
         {children}
       </Theme>
     </ThemeProviderWrapper>
