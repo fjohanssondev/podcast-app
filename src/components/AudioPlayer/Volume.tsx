@@ -19,14 +19,12 @@ const Volume = () => {
       } else {
         setIsMuted(true)
       }
-      console.log(audioRef.volume)
     }
   }
 
   const handleMute = () => {
     if (audioRef) {
       audioRef.muted = !audioRef.muted
-      console.log(audioRef.muted)
       audioRef.volume = audioRef.muted ? 0 : 0.3
       setIsMuted(audioRef.muted)
     }
@@ -41,7 +39,7 @@ const Volume = () => {
           <SpeakerLoudIcon className='text-white mr-4' width={20} height={20} />
         )}
       </button>
-      <Slider aria-label='Volume' onValueChange={handleVolumeChange} className='w-32' defaultValue={[30]} max={100} />
+      <Slider size="1" variant="surface" aria-label='Volume' onValueChange={handleVolumeChange} className='w-32' defaultValue={[30]} max={100} />
     </div>
   )
 }

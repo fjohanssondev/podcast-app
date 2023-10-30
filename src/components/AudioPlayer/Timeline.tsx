@@ -12,6 +12,7 @@ const Timeline = () => {
     if (audioRef) {
       setDuration(audioRef.duration)
       setCurrentTime(audioRef.currentTime)
+      console.log(audioRef.duration)
     }
     console.log(formatTime(duration))
     console.log(formatTime(currentTime))
@@ -19,8 +20,9 @@ const Timeline = () => {
 
   return (
     <div className='flex flex-1 items-center px-4'>
-      <progress className="flex-1 h-2 [&::-webkit-progress-bar]:bg-slate-400 [&::-webkit-progress-value]:bg-ruby-700 [&::-moz-progress-bar]:bg-ruby-700" value='30' max='100' />
-      <span className='font-light dark:text-white text-xs ml-2'>{formatTime(currentTime)} / {formatTime(duration)}</span>
+      <span className='font-light dark:text-white text-xs mr-2'>{formatTime(currentTime)}</span>
+      <progress className="flex-1 h-2 [&::-webkit-progress-bar]:bg-slate-400 [&::-webkit-progress-value]:bg-orange-800 [&::-moz-progress-bar]:bg-ruby-700" value='30' max='100' />
+      <span className='font-light dark:text-white text-xs ml-2'>{formatTime(duration)}</span>
     </div>
   )
 }

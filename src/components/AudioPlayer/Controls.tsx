@@ -26,7 +26,7 @@ const Controls = () => {
       <button aria-label="Play the previous song">
         <TrackPreviousIcon width={20} height={20} className='dark:text-white' type="solid" />
       </button>
-      <button className='border border-gray-400 rounded-full p-2' onClick={handlePlayPause} aria-pressed={isPlaying} aria-label={isPlaying ? "Pause the song" : "Play the song"}>
+      <button className='border border-white rounded-full p-2' onClick={handlePlayPause} aria-pressed={isPlaying} aria-label={isPlaying ? "Pause the song" : "Play the song"}>
         {isPlaying ? <PauseIcon width={20} height={20} className='dark:text-white' type="solid" /> : <PlayIcon width={20} height={20} className='dark:text-white' type="solid" />}
       </button>
       <button aria-label="Play the next song">
