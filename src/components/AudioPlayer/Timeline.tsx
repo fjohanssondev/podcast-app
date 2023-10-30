@@ -16,9 +16,9 @@ const Timeline = ({ audioRef }: any) => {
     }, [audioRef.current])
 
   return (
-    <div className='flex items-center absolute px-4 top-0 w-full'>
-      <progress className="flex-1 h-2 [&::-webkit-progress-bar]:bg-slate-200 [&::-webkit-progress-value]:bg-orange-400 [&::-moz-progress-bar]:bg-orange-400" value='30' max='100' />
-      <span className='font-semibold text-sm ml-4'>{formatTime(duration)}</span>
+    <div className='flex items-center px-4'>
+      <progress className="flex-1 h-2 [&::-webkit-progress-bar]:bg-slate-400 [&::-webkit-progress-value]:bg-ruby-700 [&::-moz-progress-bar]:bg-ruby-700" value='30' max='100' />
+      <span className='font-light dark:text-white text-xs ml-2'>{formatTime(currentTime)} / {formatTime(duration)}</span>
     </div>
   )
 }

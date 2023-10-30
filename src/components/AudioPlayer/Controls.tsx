@@ -1,10 +1,7 @@
 'use client'
 
-import NextIcon from '@/icons/NextIcon'
-import PauseIcon from '@/icons/PauseIcon'
-import PlayIcon from '@/icons/PlayIcon'
-import PreviousIcon from '@/icons/PreviousIcon'
 import React, { useState } from 'react'
+import { PlayIcon, PauseIcon, TrackPreviousIcon, TrackNextIcon } from '@radix-ui/react-icons'
 
 const Controls = ({ audioRef }: any) => {
 
@@ -21,15 +18,15 @@ const Controls = ({ audioRef }: any) => {
   }
 
   return (
-    <div className='flex items-center gap-2'>
+    <div className='flex items-center gap-4'>
       <button aria-label="Play the previous song">
-        <PreviousIcon type="solid" size="md" />
+        <TrackPreviousIcon width={20} height={20} className='dark:text-white' type="solid" />
       </button>
-      <button onClick={handlePlayPause} aria-pressed={isPlaying} aria-label={isPlaying ? "Pause the song" : "Play the song"}>
-        {isPlaying ? <PauseIcon type="solid" size="lg" /> : <PlayIcon type="solid" size="lg" />}
+      <button className='border border-gray-400 rounded-full p-2' onClick={handlePlayPause} aria-pressed={isPlaying} aria-label={isPlaying ? "Pause the song" : "Play the song"}>
+        {isPlaying ? <PauseIcon width={20} height={20} className='dark:text-white' type="solid" /> : <PlayIcon width={20} height={20} className='dark:text-white' type="solid" />}
       </button>
       <button aria-label="Play the next song">
-        <NextIcon type="solid" size="md" />
+        <TrackNextIcon width={20} height={20} className='dark:text-white' type="solid" />
       </button>
     </div>
   )
