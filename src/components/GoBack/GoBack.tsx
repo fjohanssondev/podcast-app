@@ -9,7 +9,7 @@ const GoBack = () => {
 
   return (
    <>
-    {pathname !== '/' && <button className="mb-8 text-sm font-medium" onClick={router.back}>{'<--'} Go back</button>}
+    {pathname !== '/' && <button className="mb-4 text-sm font-medium" onClick={router.back}>{'<--'} Go back</button>}
    </> 
   )
 }
