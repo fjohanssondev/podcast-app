@@ -1,5 +1,6 @@
 import '../globals.css'
 import '@radix-ui/themes/styles.css';
+import '@base/theme-config.css'
 
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -34,16 +35,16 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={clsx(inter.className, 'flex flex-col min-h-screen text-black')}>
+      <body className={clsx(inter.className, 'dark:bg-dark-primary flex flex-col min-h-screen text-black')}>
         <SessionProvider session={session}>
           <QueryProvider>
             <ThemeProvider>
               <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-              <div className='flex flex-1'>
+              <div className='flex flex-1 h-screen'>
                 <Sidebar />
-                <div className='flex flex-col flex-1'>
+                <div className='relative flex flex-col flex-1 ml-64'>
                   <Header />
-                  <main>
+                  <main className='flex flex-1'>
                     <div className='container px-12 py-10'>
                       <GoBack />
                       {children}
