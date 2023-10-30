@@ -6,7 +6,7 @@ export default {
   debug: false,
   providers: [
     GitHub({
-      account(account) {
+      /* account(account) {
         const refresh_token_expires_at =
           Math.floor(Date.now() / 1000) + Number(account.refresh_token_expires_in)
         return {
@@ -15,7 +15,7 @@ export default {
           refresh_token: account.refresh_token,
           refresh_token_expires_at
         }
-      },
+      }, */
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
     }),
